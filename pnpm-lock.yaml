@@ -11,9 +11,6 @@ importers:
       '@prisma/client':
         specifier: ^6.7.0
         version: 6.7.0(prisma@6.7.0(typescript@5.8.3))(typescript@5.8.3)
-      '@radix-ui/colors':
-        specifier: ^3.0.0
-        version: 3.0.0
       '@remix-run/node':
         specifier: ^2.16.6
         version: 2.16.6(typescript@5.8.3)
@@ -801,9 +798,6 @@ packages:
 
   '@prisma/get-platform@6.7.0':
     resolution: {integrity: sha512-i9IH5lO4fQwnMLvQLYNdgVh9TK3PuWBfQd7QLk/YurnAIg+VeADcZDbmhAi4XBBDD+hDif9hrKyASu0hbjwabw==}
-
-  '@radix-ui/colors@3.0.0':
-    resolution: {integrity: sha512-FUOsGBkHrYJwCSEtWRCIfQbZG7q1e6DgxCIOe1SUQzDe/7rXXeA47s8yCn6fuTNQAj1Zq4oTFi9Yjp3wzElcxg==}
 
   '@remix-run/dev@2.16.6':
     resolution: {integrity: sha512-vddzv6IY+4KFDNhTj7yvMi5BmBpEVSe6meq9Z7/yM5mjv03F5Ywsci41Sdri2RU5Nitplrj2o9iXOtQOnTBS3g==}
@@ -4587,8 +4581,6 @@ snapshots:
   '@prisma/get-platform@6.7.0':
     dependencies:
       '@prisma/debug': 6.7.0
-
-  '@radix-ui/colors@3.0.0': {}
 
   '@remix-run/dev@2.16.6(@remix-run/react@2.16.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3))(@remix-run/serve@2.16.6(typescript@5.8.3))(@types/node@22.15.18)(jiti@1.21.7)(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.18)(jiti@1.21.7)(yaml@2.7.1))(yaml@2.7.1)':
     dependencies:
