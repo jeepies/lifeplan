@@ -25,7 +25,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
       { date: '2026-03-01', weightKg: 74 },
       { date: '2027-04-01', weightKg: 76 },
       { date: '2026-05-01', weightKg: 75 },
-    ]
+    ],
   };
 }
 
