@@ -1,8 +1,8 @@
 import { LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { CookingPot, Dumbbell, FileQuestion, Weight } from 'lucide-react';
+import { CookingPot, Dumbbell, Weight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
-import WeightChart from '~/components/weight-chart';
+import WeightChart from '~/routes/_app.dashboard.index/weight-chart';
 import { getSession, getUserBySession } from '~/lib/session.server';
 import { getInspirationalQuote } from '~/lib/zenquote.server';
 
@@ -25,7 +25,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
       { date: '2026-03-01', weightKg: 74 },
       { date: '2027-04-01', weightKg: 76 },
       { date: '2026-05-01', weightKg: 75 },
-    ]
+    ],
   };
 }
 
