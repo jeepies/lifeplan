@@ -14,12 +14,17 @@ import { useState } from 'react';
 import { Button } from '~/components/ui/button';
 import { Loader2 } from 'lucide-react';
 import { ActionFunctionArgs } from '@remix-run/node';
+import { isRequestValid, registerUser } from '~/lib/auth.server';
 
 type FormData = z.infer<typeof UserSchema>;
 
 export async function action({ request }: ActionFunctionArgs) {
-  console.log(request);
-  return null;
+  const payload = await isRequestValid(request);
+  if (!payload.success || payload.error) return payload;
+
+  registerUser(payload.data.username, payload.data.password);
+
+  return redirect('/dashboard');
 }
 
 export default function Register() {
