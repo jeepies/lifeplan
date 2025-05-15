@@ -1,5 +1,5 @@
-import { Link } from '@remix-run/react'
-import { Button } from '~/components/ui/button'
+import { Link } from '@remix-run/react';
+import { Button } from '~/components/ui/button';
 
 export default function Index() {
   return (
@@ -14,5 +14,5 @@ export default function Index() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
