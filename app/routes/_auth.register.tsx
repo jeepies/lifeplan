@@ -24,7 +24,10 @@ export async function action({ request }: ActionFunctionArgs) {
   if (!payload.success || payload.error) return payload;
 
   try {
-    const user = await registerUser(payload.data.username, payload.data.password);
+    const user = await registerUser(
+      payload.data.username,
+      payload.data.password,
+    );
     const session = await getSession(request.headers.get('session'));
     session.set('userID', user.id);
 
