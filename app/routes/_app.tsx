@@ -1,6 +1,8 @@
-import { LoaderFunctionArgs } from '@remix-run/node';
+import { LoaderFunctionArgs, redirect } from '@remix-run/node';
+import { getSession, isLoggedIn } from '~/lib/session.server';
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  // verify user is logged in
+  const session = await getSession(request.headers.get('Cookie'));
+  if (!isLoggedIn(session)) return redirect('/');
   return null;
 }
