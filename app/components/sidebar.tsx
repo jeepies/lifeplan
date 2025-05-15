@@ -36,7 +36,7 @@ export function Sidebar({ className, user }: SidebarProps) {
               variant="ghost"
               className="w-full justify-start text-gray-900 dark:text-gray-100"
             >
-              <Link to="/dashboard">
+              <Link to="/dashboard/index">
                 <Home className="mr-2 h-4 w-4" />
                 Home
               </Link>
