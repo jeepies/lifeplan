@@ -4,13 +4,17 @@ import { CookingPot, Dumbbell, FileQuestion, Weight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import WeightChart from '~/components/weight-chart';
 import { getSession, getUserBySession } from '~/lib/session.server';
+import { getInspirationalQuote } from '~/lib/zenquote.server';
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const session = await getSession(request.headers.get('Cookie'));
   const user = await getUserBySession(session);
 
+  const quote = await getInspirationalQuote();
+
   return {
     user: user!,
+    quote: quote,
     weightDataSample: [
       { date: '2024-09-01', weightKg: 70 },
       { date: '2024-10-01', weightKg: 68 },
@@ -21,12 +25,12 @@ export async function loader({ request }: LoaderFunctionArgs) {
       { date: '2026-03-01', weightKg: 74 },
       { date: '2027-04-01', weightKg: 76 },
       { date: '2026-05-01', weightKg: 75 },
-    ],
+    ]
   };
 }
 
 export default function Dashboard() {
-  const { user, weightDataSample } = useLoaderData<typeof loader>();
+  const { user, quote, weightDataSample } = useLoaderData<typeof loader>();
 
   return (
     <>
@@ -67,7 +71,7 @@ export default function Dashboard() {
         </Card>
       </div>
 
-      <Card className="w-full">
+      <Card className="w-full mb-4">
         <CardHeader>
           <CardTitle>Weight</CardTitle>
         </CardHeader>
@@ -76,6 +80,36 @@ export default function Dashboard() {
             <WeightChart data={weightDataSample} />
           </div>
         </CardContent>
+      </Card>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-4">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle>Out of 0</CardTitle>
+            <CookingPot className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">Not enough data</div>
+            <p className="text-xs text-muted-foreground">Favorite Meal</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle>Out of 0</CardTitle>
+            <Dumbbell className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">Not enough data</div>
+            <p className="text-xs text-muted-foreground">Favorite Exercise</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      <Card className="w-full mb-4">
+        <CardHeader>
+          <CardTitle>Inspirational Quote</CardTitle>
+        </CardHeader>
+        <CardContent>{quote}</CardContent>
       </Card>
     </>
   );
