@@ -1,8 +1,8 @@
 import { LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import { CookingPot, Dumbbell, FileQuestion, Weight } from 'lucide-react';
+import { CookingPot, Dumbbell, Weight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
-import WeightChart from '~/components/weight-chart';
+import WeightChart from '~/routes/_app.dashboard.index/weight-chart';
 import { getSession, getUserBySession } from '~/lib/session.server';
 import { getInspirationalQuote } from '~/lib/zenquote.server';
 
