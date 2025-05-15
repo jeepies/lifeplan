@@ -1,5 +1,5 @@
 {
-  "name": "lifeplan",
+  "name": "oyl",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -20,7 +20,9 @@
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@prisma/client": "^6.7.0",
+    "@radix-ui/react-avatar": "^1.1.9",
     "@radix-ui/react-label": "^2.1.6",
+    "@radix-ui/react-separator": "^1.1.6",
     "@radix-ui/react-slot": "^1.2.2",
     "@remix-run/node": "^2.16.6",
     "@remix-run/react": "^2.16.6",
@@ -37,6 +39,7 @@
     "react-hook-form": "^7.56.3",
     "react-router": "^7.6.0",
     "react-router-dom": "^6.4.0",
+    "recharts": "^2.15.3",
     "remix-hook-form": "^7.0.1",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
