@@ -12,9 +12,15 @@ export async function loader({ request }: LoaderFunctionArgs) {
   return {
     user: user!,
     weightDataSample: [
+      { date: '2024-09-01', weightKg: 70 },
+      { date: '2024-10-01', weightKg: 68 },
+      { date: '2024-11-01', weightKg: 66 },
+      { date: '2024-12-01', weightKg: 68 },
       { date: '2025-01-01', weightKg: 70 },
-      { date: '2025-02-01', weightKg: 68 },
-      { date: '2025-03-01', weightKg: 66 },
+      { date: '2025-02-01', weightKg: 72 },
+      { date: '2026-03-01', weightKg: 74 },
+      { date: '2027-04-01', weightKg: 76 },
+      { date: '2026-05-01', weightKg: 75 },
     ],
   };
 }
