@@ -1,19 +1,18 @@
 import { Separator } from '@radix-ui/react-separator';
 import { Link } from '@remix-run/react';
 import {
+  Book,
   Calendar,
-  Cog,
   CookingPot,
   Dumbbell,
   Home,
   LogOut,
-  Tickets,
+  PillBottle,
   User,
 } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { cn } from '~/lib/utils';
 import { ThemeToggle } from './theme-toggle';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 interface SidebarProps {
   className?: string;
@@ -49,7 +48,7 @@ export function Sidebar({ className, user }: SidebarProps) {
               variant="ghost"
               className="w-full justify-start text-gray-900 dark:text-gray-100"
             >
-              <Link to="/dashboard/exercise">
+              <Link to="/dashboard/calendar">
                 <Calendar className="mr-2 h-4 w-4" />
                 Calendar
               </Link>
@@ -72,6 +71,26 @@ export function Sidebar({ className, user }: SidebarProps) {
               <Link to="/dashboard/exercise">
                 <Dumbbell className="mr-2 h-4 w-4" />
                 Exercise
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="w-full justify-start text-gray-900 dark:text-gray-100"
+            >
+              <Link to="/dashboard/medication">
+                <PillBottle className="mr-2 h-4 w-4" />
+                Medication
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="w-full justify-start text-gray-900 dark:text-gray-100"
+            >
+              <Link to="/dashboard/journal">
+                <Book className="mr-2 h-4 w-4" />
+                Journal
               </Link>
             </Button>
           </div>
