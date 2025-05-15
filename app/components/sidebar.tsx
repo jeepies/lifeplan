@@ -1,9 +1,19 @@
 import { Separator } from '@radix-ui/react-separator';
 import { Link } from '@remix-run/react';
-import { Calendar, Cog, Home, LogOut, Tickets, User } from 'lucide-react';
+import {
+  Calendar,
+  Cog,
+  CookingPot,
+  Dumbbell,
+  Home,
+  LogOut,
+  Tickets,
+  User,
+} from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { cn } from '~/lib/utils';
 import { ThemeToggle } from './theme-toggle';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 interface SidebarProps {
   className?: string;
@@ -39,9 +49,29 @@ export function Sidebar({ className, user }: SidebarProps) {
               variant="ghost"
               className="w-full justify-start text-gray-900 dark:text-gray-100"
             >
-              <Link to="/dashboard/events">
-                <Tickets className="mr-2 h-4 w-4" />
-                Events
+              <Link to="/dashboard/exercise">
+                <Calendar className="mr-2 h-4 w-4" />
+                Calendar
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="w-full justify-start text-gray-900 dark:text-gray-100"
+            >
+              <Link to="/dashboard/meals">
+                <CookingPot className="mr-2 h-4 w-4" />
+                Meals
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="w-full justify-start text-gray-900 dark:text-gray-100"
+            >
+              <Link to="/dashboard/exercise">
+                <Dumbbell className="mr-2 h-4 w-4" />
+                Exercise
               </Link>
             </Button>
           </div>
@@ -59,7 +89,11 @@ export function Sidebar({ className, user }: SidebarProps) {
               {user.username}
             </Link>
           </Button>
-          <Button asChild variant="ghost" className="w-full justify-start text-gray-900 dark:text-gray-100">
+          <Button
+            asChild
+            variant="ghost"
+            className="w-full justify-start text-gray-900 dark:text-gray-100"
+          >
             <ThemeToggle />
           </Button>
           <Button
