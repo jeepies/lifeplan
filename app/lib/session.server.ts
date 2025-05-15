@@ -2,7 +2,7 @@ import { createCookieSessionStorage, Session } from '@remix-run/node';
 import config from './config.server';
 import { prisma } from './prisma';
 
-export let sessionStorage = createCookieSessionStorage({
+export const sessionStorage = createCookieSessionStorage({
   cookie: {
     name: '_session',
     sameSite: 'lax',
