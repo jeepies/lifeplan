@@ -33,3 +33,5 @@ export async function isLoggedIn(session: Session) {
   const user = await getUserBySession(session);
   return user !== null;
 }
+
+export const { getSession, commitSession, destroySession } = sessionStorage;
