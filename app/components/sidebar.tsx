@@ -3,6 +3,7 @@ import { Link } from '@remix-run/react';
 import { Calendar, Cog, Home, LogOut, Tickets, User } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { cn } from '~/lib/utils';
+import { ThemeToggle } from './theme-toggle';
 
 interface SidebarProps {
   className?: string;
@@ -13,7 +14,7 @@ interface SidebarProps {
 
 export function Sidebar({ className, user }: SidebarProps) {
   return (
-    <div className={cn('pb-12 w-64 relative bg-primary-foreground', className)}>
+    <div className={cn('pb-12 w-64 relative', className)}>
       <div className="space-y-4 py-4">
         <div className="px-3 py-2">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight text-gray-900 dark:text-gray-100">
@@ -57,6 +58,9 @@ export function Sidebar({ className, user }: SidebarProps) {
               <User className="mr-2 h-4 w-4" />
               {user.username}
             </Link>
+          </Button>
+          <Button asChild variant="ghost" className="w-full justify-start text-gray-900 dark:text-gray-100">
+            <ThemeToggle />
           </Button>
           <Button
             asChild
