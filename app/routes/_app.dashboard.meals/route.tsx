@@ -1,6 +1,5 @@
 import { Link } from '@remix-run/react';
-import { CookingPot, Dumbbell, Plus, Weight } from 'lucide-react';
-import { Badge } from '~/components/ui/badge';
+import { CookingPot, Plus } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import { Input } from '~/components/ui/input';
