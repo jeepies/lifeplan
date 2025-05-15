@@ -15,6 +15,7 @@ import { Button } from '~/components/ui/button';
 import { Loader2 } from 'lucide-react';
 import { ActionFunctionArgs } from '@remix-run/node';
 import { isRequestValid, registerUser } from '~/lib/auth.server';
+import { commitSession, getSession } from '~/lib/session.server';
 
 type FormData = z.infer<typeof UserSchema>;
 
@@ -22,9 +23,21 @@ export async function action({ request }: ActionFunctionArgs) {
   const payload = await isRequestValid(request);
   if (!payload.success || payload.error) return payload;
 
-  registerUser(payload.data.username, payload.data.password);
+  try {
+    const user = await registerUser(payload.data.username, payload.data.password);
+    const session = await getSession(request.headers.get('session'));
+    session.set('userID', user.id);
 
-  return redirect('/dashboard');
+    return redirect('/dashboard', {
+      headers: {
+        'Set-Cookie': await commitSession(session),
+      },
+    });
+  } catch (e) {
+    return { error: 'This username already exists.' };
+  }
+
+  return null;
 }
 
 export default function Register() {
@@ -51,7 +64,7 @@ export default function Register() {
     <div>
       <div className="space-y-2 text-center">
         <h1 className="text-2xl font-bold">Register</h1>
-        <p className="text-muted-foreground">Lorem ipsum</p>
+        <p className="text-muted-foreground">Starting fresh!</p>
       </div>
 
       <FormProvider {...methods}>
